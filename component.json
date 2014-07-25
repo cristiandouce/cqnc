@@ -1,13 +1,21 @@
 {
-  "name": "sequence",
-  "repo": "cristiandouce/sequence",
-  "description": "Simple manager for sequence fx animations",
+  "name": "cqnc",
+  "repo": "cristiandouce/cqnc",
+  "description": "Simple manager for sequence fx animations or whatever",
+  "version": "0.0.1",
+  "keywords": [
+    "middleware",
+    "sequence",
+    "animation",
+    "manager"
+  ],
   "dependencies": {
     "visionmedia/debug": "*"
   },
   "development": {
     "component/assert": "*"
   },
-  "scripts": [ "index.js" ],
-  "main": "index.js"
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": [ "index.js" ]
 }

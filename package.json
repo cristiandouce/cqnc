@@ -1,0 +1,31 @@
+{
+  "name": "cqnc",
+  "version": "0.0.1",
+  "description": "Simple manager for sequence fx animations or whatever",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/cristiandouce/cqnc.git"
+  },
+  "keywords": [
+    "middleware",
+    "sequence",
+    "animation",
+    "manager"
+  ],
+  "author": "Cristian Douce <me@cristiandouce.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cristiandouce/cqnc/issues"
+  },
+  "homepage": "https://github.com/cristiandouce/cqnc",
+  "devDependencies": {
+    "component-test": "^0.1.3"
+  }
+}
