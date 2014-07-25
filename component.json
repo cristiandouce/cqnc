@@ -1,0 +1,13 @@
+{
+  "name": "sequence",
+  "repo": "cristiandouce/sequence",
+  "description": "Simple manager for sequence fx animations",
+  "dependencies": {
+    "visionmedia/debug": "*"
+  },
+  "development": {
+    "component/assert": "*"
+  },
+  "scripts": [ "index.js" ],
+  "main": "index.js"
+}
