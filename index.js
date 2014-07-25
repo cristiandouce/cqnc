@@ -2,7 +2,7 @@
  * Module dependencies.
  */
 
-var debug = require('debug')('sequence');
+var debug = require('debug')('cqnc');
 var slice = Array.prototype.slice;
 var noop = function noop () {};
 
