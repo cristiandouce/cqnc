@@ -7,21 +7,25 @@
 
   Install with [component(1)](http://component.io):
 
-    $ component install cristiandouce/sequence
+    $ component install cristiandouce/Cqnc
+
+  Install with [npm(1)](http://npmjs.org):
+
+    $ npm install cqnc
 
 ## Usage
 
 ```
-var Sequence = require('cqnc');
+var Cqnc = require('cqnc');
 
-Sequence()
+Cqnc()
 .add(fillEmail, 'something@cool.com')   // arguments are passed to functions on execution
 .add(fillPassword, '123shhh')
 .add(fx, from, to, delay)
-.cancel(onSequenceCancel)
-.error(onSequenceError)
-.run(onSequenceEnd)
-.stop()                                 // when this invoked, onSequenceCancel will be called
+.cancel(onCqncCancel)
+.error(onCqncError)
+.run(onCqncEnd)
+.stop()                                 // when this invoked, onCqncCancel will be called
 
 // where
 
@@ -39,13 +43,18 @@ function fillInput (text) {
   // and then ...
 
   return function cancel() {
-    // clear input if sequence stopped
+    // clear input if Cqnc stopped
     input.value = '';
   }
 }
 
 // To stop execution by erroring, just `throw` an `Error` whenever you want
-// and `onSequenceError` will be called with it
+// and `onCqncError` will be called with it
+
+cqnc.add(willError);
+cqnc.error(getsCalledOnError);
+cqnc.run();
+
 function willError (done) {
   throw new Error('helloooo! I am an Error');
 }
@@ -54,18 +63,56 @@ function willError (done) {
 
 ## API
 
-### Sequence
+### Cqnc
+Create a `Cqnc` instance with `.add()` and `.run()` functions
 
-### Sequence#add(fx [, arg1, arg2, arg3, ...])
+```
+var Cqnc = require('Cqnc');
+var cqnc = Cqnc(); // or `new Cqnc()`
+```
 
-### Sequence#run([end])
+### Cqnc#add(fx [, arg1, arg2, arg3, ...])
+Add `fx` to sequence of events, to be called with `arguments.shift()` args
 
-### Sequence#stop()
+```
+cqnc.add(firstFx);
+cqnc.add(fxWithParams, 1, 'abc', ['array', 'too']);
+```
 
-### Sequence#cancel(oncancel)
+### Cqnc#run([end])
+Run sequence `steps` 1 by 1 and provide with a `done` function to be called next
 
-### Sequence#error(onerror)
+```
+cqnc.end(function() {
+  // sequence of `fx`s concluded
+});
+```
 
+### Cqnc#stop()
+Cancel execution of events
+
+```
+cqnc.stop();
+```
+
+### Cqnc#error(onerror)
+Register `onerror` handler
+
+```
+cqnc.error(function onerror (err) {
+  err intanceof Error // true
+  // log error
+});
+```
+
+### Cqnc#cancel(oncancel)
+Register `oncancel` handler
+
+```
+cqnc.cancel(function oncancel () {
+  // called after fx sequence canceled with `.stop()`
+});
+```
 
 ## License
 
