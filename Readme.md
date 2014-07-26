@@ -15,7 +15,7 @@
 
 ## Usage
 
-```
+```js
 var Cqnc = require('cqnc');
 
 Cqnc()
@@ -66,7 +66,7 @@ function willError (done) {
 ### Cqnc
 Create a `Cqnc` instance with `.add()` and `.run()` functions
 
-```
+```js
 var Cqnc = require('Cqnc');
 var cqnc = Cqnc(); // or `new Cqnc()`
 ```
@@ -74,7 +74,7 @@ var cqnc = Cqnc(); // or `new Cqnc()`
 ### Cqnc#add(fx [, arg1, arg2, arg3, ...])
 Add `fx` to sequence of events, to be called with `arguments.shift()` args
 
-```
+```js
 cqnc.add(firstFx);
 cqnc.add(fxWithParams, 1, 'abc', ['array', 'too']);
 ```
@@ -82,7 +82,7 @@ cqnc.add(fxWithParams, 1, 'abc', ['array', 'too']);
 ### Cqnc#run([end])
 Run sequence `steps` 1 by 1 and provide with a `done` function to be called next
 
-```
+```js
 cqnc.end(function() {
   // sequence of `fx`s concluded
 });
@@ -91,14 +91,14 @@ cqnc.end(function() {
 ### Cqnc#stop()
 Cancel execution of events
 
-```
+```js
 cqnc.stop();
 ```
 
 ### Cqnc#error(onerror)
 Register `onerror` handler
 
-```
+```js
 cqnc.error(function onerror (err) {
   err intanceof Error // true
   // log error
@@ -108,7 +108,7 @@ cqnc.error(function onerror (err) {
 ### Cqnc#cancel(oncancel)
 Register `oncancel` handler
 
-```
+```js
 cqnc.cancel(function oncancel () {
   // called after fx sequence canceled with `.stop()`
 });
@@ -116,24 +116,4 @@ cqnc.cancel(function oncancel () {
 
 ## License
 
-  The MIT License (MIT)
-
-  Copyright (c) 2014 Cristian Douce <me@cristiandouce.com>
-
-  Permission is hereby granted, free of charge, to any person obtaining a copy
-  of this software and associated documentation files (the "Software"), to deal
-  in the Software without restriction, including without limitation the rights
-  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-  copies of the Software, and to permit persons to whom the Software is
-  furnished to do so, subject to the following conditions:
-
-  The above copyright notice and this permission notice shall be included in
-  all copies or substantial portions of the Software.
-
-  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-  THE SOFTWARE.
+MIT
