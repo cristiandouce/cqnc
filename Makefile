@@ -1,9 +1,9 @@
-
+BIN=./node_modules/.bin
 build: components index.js
-	@component build --dev
+	@$(BIN)/component-build --dev
 
 components: component.json
-	@component install --dev
+	@$(BIN)/component-install --dev
 
 node_modules: package.json
 	@npm install --dev

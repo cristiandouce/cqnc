@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/cristiandouce/cqnc",
   "devDependencies": {
-    "component-test": "^0.1.3"
+    "component": "0.19.9",
+    "component-test": "0.1.3"
   }
 }
