@@ -1,6 +1,6 @@
 {
   "name": "cqnc",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Simple manager for sequence fx animations or whatever",
   "main": "index.js",
   "directories": {

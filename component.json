@@ -2,7 +2,7 @@
   "name": "cqnc",
   "repo": "cristiandouce/cqnc",
   "description": "Simple manager for sequence fx animations or whatever",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "keywords": [
     "middleware",
     "sequence",
@@ -17,5 +17,7 @@
   },
   "license": "MIT",
   "main": "index.js",
-  "scripts": [ "index.js" ]
+  "scripts": [
+    "index.js"
+  ]
 }
