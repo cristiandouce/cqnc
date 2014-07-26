@@ -79,7 +79,7 @@ Sequence.prototype.run = function(done) {
     try {
       self.fxcancel = fx.apply(fx, args.concat(next));
     } catch (err) {
-      if ('function' !== typeof self.onerror) {
+      if ('function' === typeof self.onerror) {
         self.onerror(err);
       } else {
         throw err;
@@ -132,11 +132,11 @@ Sequence.prototype.error = function(onerror) {
 /**
  * Register `oncancel` handler
  *
- * @param {Function} onerror
+ * @param {Function} oncancel
  * @api public
  */
 
-Sequence.prototype.error = function(onerror) {
-  this.onerror = onerror;
+Sequence.prototype.cancel = function(oncancel) {
+  this.oncancel = oncancel;
   return this;
 }
