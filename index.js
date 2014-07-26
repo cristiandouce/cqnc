@@ -7,19 +7,19 @@ var slice = Array.prototype.slice;
 var noop = function noop () {};
 
 /**
- * Expose `Sequence` constructor
+ * Expose `Cqnc` constructor
  */
 
-module.exports = Sequence;
+module.exports = Cqnc;
 
 /**
- * Create an `Sequence` instance
+ * Create a `Cqnc` instance
  * with `.add()` and `.run()` functions
  */
 
-function Sequence() {
-  if (!(this instanceof Sequence)) {
-    return new Sequence;
+function Cqnc() {
+  if (!(this instanceof Cqnc)) {
+    return new Cqnc;
   }
 
   this.steps = [];
@@ -29,18 +29,18 @@ function Sequence() {
 }
 
 /**
- * Add sequence `fx` to sequence, to be called with
+ * Add `fx` to sequence of events, to be called with
  * `arguments.shift()` args
  *
  * @param {Function} fx
- * @return {Sequence}
+ * @return {Cqnc}
  * @api public
  */
 
-Sequence.prototype.add = function(fx) {
+Cqnc.prototype.add = function(fx) {
   this.steps.push({
     fx: fx,
-    args: Array.prototype.slice.call(arguments, 1)
+    args: slice.call(arguments, 1)
   });
   return this;
 }
@@ -50,10 +50,11 @@ Sequence.prototype.add = function(fx) {
  * with a `done` function to be called next
  *
  * @param {Function} done
+ * @return {Cqnc}
  * @api public
  */
 
-Sequence.prototype.run = function(done) {
+Cqnc.prototype.run = function(done) {
   var steps = this.steps;
   var self = this;
   var i = 0;
@@ -96,11 +97,11 @@ Sequence.prototype.run = function(done) {
 /**
  * Cancel execution of events
  *
- * @return {Sequence}
+ * @return {Cqnc}
  * @api public
  */
 
-Sequence.prototype.stop = function() {
+Cqnc.prototype.stop = function() {
   debug('stop');
 
   this.stopped = true;
@@ -120,10 +121,11 @@ Sequence.prototype.stop = function() {
  * Register `onerror` handler
  *
  * @param {Function} onerror
+ * @return {Cqnc}
  * @api public
  */
 
-Sequence.prototype.error = function(onerror) {
+Cqnc.prototype.error = function(onerror) {
   this.onerror = onerror;
   return this;
 }
@@ -133,10 +135,11 @@ Sequence.prototype.error = function(onerror) {
  * Register `oncancel` handler
  *
  * @param {Function} oncancel
+ * @return {Cqnc}
  * @api public
  */
 
-Sequence.prototype.cancel = function(oncancel) {
+Cqnc.prototype.cancel = function(oncancel) {
   this.oncancel = oncancel;
   return this;
 }
