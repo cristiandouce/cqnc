@@ -100,7 +100,7 @@ Register `onerror` handler
 
 ```js
 cqnc.error(function onerror (err) {
-  err intanceof Error // true
+  err instanceof Error // true
   // log error
 });
 ```
